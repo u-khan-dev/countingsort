@@ -1,0 +1,13 @@
+COUNTING-SORT(In, Out, Max)
+	for i ← 0 to Max
+		do Count[i] ← 0
+
+	for i ← 0 to length(In) - 1
+		do Count[In[j]] ← Count[In[j]] + 1
+
+	for i ← 1 to Max
+		do Count[i] ← Count[i - 1] + Count[i]
+
+	for j ← length(In) - 1 to 0
+		do Out[Count[In[j]] - 1] ← In[j]
+			Count[In[j]] ← Count[In[j]] - 1
